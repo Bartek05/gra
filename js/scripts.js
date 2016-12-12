@@ -1,6 +1,6 @@
 var newGameBtn = document.getElementById('js-newGameButton');
 
-newGameBtn.addEventListener('click', newGameBtn);
+newGameBtn.addEventListener('click', newGame);
 
 var pickRock = document.getElementById('js-playerPick_rock'),
      pickPaper = document.getElementById('js-playerPick_paper'),
@@ -78,7 +78,7 @@ var playerPickElem = document.getElementById('js-playerPick'),
 
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
-    
+
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
 }
@@ -94,7 +94,7 @@ function checkRoundWinner(playerPick, computerPick) {
         (computerPick == 'rock' &&  playerPick == 'scissors') ||
         (computerPick == 'scissors' &&  playerPick == 'paper') ||
         (computerPick == 'paper' &&  playerPick == 'rock') ) {
-        
+
         winnerIs = 'computer';
     }
 
@@ -110,10 +110,10 @@ function checkRoundWinner(playerPick, computerPick) {
 
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
-    
+
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
-    
+
     checkRoundWinner(playerPick, computerPick);
 }
 
