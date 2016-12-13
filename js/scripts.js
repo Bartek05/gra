@@ -55,7 +55,7 @@ function newGame() {
     setGameElements();
 
     playerNameElem.innerHTML = player.name;
-    setGamePoints(); // ta funkcja jeszcze nie powstała
+    setGamePoints(); 
   }
 
 }
@@ -105,7 +105,8 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Wygrana!";
         computer.score++;
     }
-
+    setGamePoints();
+    endGame();
 }
 
 function playerPick(playerPick) {
@@ -120,4 +121,20 @@ function playerPick(playerPick) {
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
+}
+
+function endGame() {
+    if (player.score >= 10 || computer.score >= 10){
+        gameState = 'ended';
+        if (player.score == 10 && computer.score == 10){
+            alert('Remis!');
+        } else if (player.score >= 10){
+            alert('Wygrał, ' + player.name);
+        } else if (computer.score >= 10){
+            alert('Wygrał, komputer!');
+        } 
+
+        setGameElements();
+    } 
+
 }
